@@ -31,19 +31,15 @@ function RenderScreen()
     context.fillRect(0, height-10, width, 10);
     oldx= player1x;
     oldy= player1y;
+    player1y+= 3;
     }
 function mouseDown(e)
     {
     drag=true;
-    }
+  }
 function mouseUp()
     {
     drag=false;
-    for (y = player1y;y<height-10-30;y+=1)
-        {
-        player1y=y;
-        RenderScreen();
-        }
     }
 function mouseMove(e)
     {
@@ -61,7 +57,7 @@ canvas.addEventListener('mouseup',mouseUp, false);
 canvas.addEventListener('mousemove',mouseMove, false);
 canvas.addEventListener('mousedown',mouseDown, false);
 
-RenderScreen();
+setInterval(RenderScreen, 20);
 </script>
 </body>
 </html>
