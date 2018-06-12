@@ -21,6 +21,13 @@ oldy = player1y;
 var drag=false;
 var y;
 //--------------------------------------Function declarations
+function DisplayText()
+{
+  context.beginpath();
+  context.fillStyle = "Orange";
+  context.fillText("You Win!", 100 , 100);
+  context.stroke();
+}
 function RenderScreen()
     {
     context.fillStyle = "white";
@@ -29,6 +36,12 @@ function RenderScreen()
     context.fillRect(player1x, player1y, 20,30);
     context.fillStyle = "green";
     context.fillRect(0, height-10, width, 10);
+    context.fillStyle = "black";
+    context.fillRect(350, 100, 15,100);
+    context.fillStyle = "black";
+    context.fillRect(400,100, 15, 100);
+    context.fillStyle = "red";
+    context.fillRect(350,200,65,15);
     oldx= player1x;
     oldy= player1y;
     player1y+= 3;
@@ -40,6 +53,7 @@ function mouseDown(e)
 function mouseUp()
     {
     drag=false;
+
     }
 function mouseMove(e)
     {
