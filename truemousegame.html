@@ -2,6 +2,11 @@
 <html>
 <body>
 <script>
+/***********************************************
+Author: Josh Burr
+Last Modified Date:
+Name Of Program:  JS dropper
+***********************************************/
 //-------------------------------Variable declarations and initializations
 var canvas = document.createElement('canvas');
 var width = 600;
@@ -20,14 +25,16 @@ player1y = 100;
 oldy = player1y;
 var drag=false;
 var y;
+var playerspeed;
+playerspeed= 3;
 //--------------------------------------Function declarations
 function DisplayText()
-{
+  {
   context.beginpath();
   context.fillStyle = "Orange";
   context.fillText("You Win!", 100 , 100);
   context.stroke();
-}
+  }
 function RenderScreen()
     {
     context.fillStyle = "white";
@@ -44,16 +51,16 @@ function RenderScreen()
     context.fillRect(350,200,65,15);
     oldx= player1x;
     oldy= player1y;
-    player1y+= 3;
+    player1y += playerspeed;
+    if(player1y = 260){playerspeed = 0;}
     }
 function mouseDown(e)
     {
     drag=true;
-  }
+    }
 function mouseUp()
     {
     drag=false;
-
     }
 function mouseMove(e)
     {
@@ -70,7 +77,6 @@ function mouseMove(e)
 canvas.addEventListener('mouseup',mouseUp, false);
 canvas.addEventListener('mousemove',mouseMove, false);
 canvas.addEventListener('mousedown',mouseDown, false);
-
 setInterval(RenderScreen, 20);
 </script>
 </body>
