@@ -28,11 +28,11 @@ var y;
 var playerspeed;
 playerspeed= 3;
 //--------------------------------------Function declarations
-function DisplayText()
+function DisplayText(text)
   {
   context.beginpath();
   context.fillStyle = "Orange";
-  context.fillText("You Win!", 100 , 100);
+  context.fillText(text, 100 , 100);
   context.stroke();
   }
 function RenderScreen()
@@ -52,7 +52,14 @@ function RenderScreen()
     oldx= player1x;
     oldy= player1y;
     player1y += playerspeed;
-    if(player1y = 260){playerspeed = 0;}
+    if(player1y > 260){playerspeed=0}
+    if(player1y < 260){playerspeed=3}
+    if(player1y >170 && player1x < 415 && player1x > 350)
+    {
+      playerspeed = 0;
+      DisplayText('You Win!')
+    }
+    if(player1y)
     }
 function mouseDown(e)
     {
